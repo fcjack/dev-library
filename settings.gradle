@@ -1,2 +1,3 @@
-rootProject.name = 'dev-books'
+include 'dev-books'
+include 'admin'
 
