@@ -26,7 +26,7 @@
             </column>
 
             <column name="name" type="VARCHAR(255)"/>
-            <column name="page" type="VARCHAR(500)"/>
+            <column name="age" type="INTEGER"/>
             <column name="facebook_page" type="VARCHAR(500)"/>
         </createTable>
 

@@ -10,21 +10,21 @@ import java.util.List;
  * Created by jackson on 04/01/17.
  */
 @Entity
-@SequenceGenerator(name="seq", sequenceName = "auth_seq")
+@SequenceGenerator(name = "seq", sequenceName = "author_seq", allocationSize = 1)
 public class Author extends AbstractEntity {
 
     @NotEmpty(message = "Author has to have a name")
     @NotBlank(message = "The author`s name can not be empty")
     private String name;
 
-    private String page;
+    private Integer age;
 
     @Column(name = "facebook_page")
     private String facebookPage;
 
     @NotEmpty(message = "Author has to have books")
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name="author_book", joinColumns={@JoinColumn(name="author_id")}, inverseJoinColumns={@JoinColumn(name="book_id")})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "author_book", joinColumns = {@JoinColumn(name = "author_id")}, inverseJoinColumns = {@JoinColumn(name = "book_id")})
     private List<Book> books;
 
     public String getName() {
@@ -35,12 +35,12 @@ public class Author extends AbstractEntity {
         this.name = name;
     }
 
-    public String getPage() {
-        return page;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setPage(String page) {
-        this.page = page;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getFacebookPage() {

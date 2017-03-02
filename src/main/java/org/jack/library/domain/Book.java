@@ -3,15 +3,15 @@ package org.jack.library.domain;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Entity;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * Created by jackson on 04/01/17.
  */
 @Entity
-@SequenceGenerator(name="seq", sequenceName = "book_seq")
+@SequenceGenerator(name="seq", sequenceName = "book_seq", allocationSize = 1)
 public class Book extends AbstractEntity {
 
     @NotNull
@@ -20,18 +20,18 @@ public class Book extends AbstractEntity {
     private String title;
 
     @NotNull
-    @NotBlank
-    @NotEmpty
     private Integer year;
 
     @NotNull
-    @NotBlank
-    @NotEmpty
     private Integer edition;
 
     private Integer pages;
 
     private Double rate;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "book_category", joinColumns = {@JoinColumn(name = "book_id")}, inverseJoinColumns = {@JoinColumn(name = "category_id")})
+    private List<BookCategory> categories;
 
     public String getTitle() {
         return title;
@@ -55,5 +55,29 @@ public class Book extends AbstractEntity {
 
     public void setEdition(Integer edition) {
         this.edition = edition;
+    }
+
+    public Integer getPages() {
+        return pages;
+    }
+
+    public void setPages(Integer pages) {
+        this.pages = pages;
+    }
+
+    public Double getRate() {
+        return rate;
+    }
+
+    public void setRate(Double rate) {
+        this.rate = rate;
+    }
+
+    public List<BookCategory> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<BookCategory> categories) {
+        this.categories = categories;
     }
 }

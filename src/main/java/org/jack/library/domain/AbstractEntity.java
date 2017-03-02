@@ -8,7 +8,7 @@ import java.io.Serializable;
  */
 @MappedSuperclass
 @Table(schema = "library")
-public class AbstractEntity implements Serializable {
+public abstract class AbstractEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
