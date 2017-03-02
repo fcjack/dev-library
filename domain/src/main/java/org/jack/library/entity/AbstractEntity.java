@@ -1,4 +1,4 @@
-package org.jack.library.domain;
+package org.jack.library.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

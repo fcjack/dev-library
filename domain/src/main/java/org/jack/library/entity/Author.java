@@ -1,4 +1,4 @@
-package org.jack.library.domain;
+package org.jack.library.entity;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;

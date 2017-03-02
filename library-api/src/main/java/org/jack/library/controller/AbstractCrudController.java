@@ -1,6 +1,6 @@
 package org.jack.library.controller;
 
-import org.jack.library.domain.AbstractEntity;
+import org.jack.library.entity.AbstractEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

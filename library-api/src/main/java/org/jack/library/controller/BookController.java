@@ -1,6 +1,6 @@
 package org.jack.library.controller;
 
-import org.jack.library.domain.Book;
+import org.jack.library.entity.Book;
 import org.jack.library.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

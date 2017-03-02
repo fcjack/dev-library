@@ -3,6 +3,8 @@ package org.jack.library.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.jack.library.entity.AbstractEntity;
+import org.jack.library.entity.BookCategory;
 
 import javax.persistence.*;
 import java.util.Date;

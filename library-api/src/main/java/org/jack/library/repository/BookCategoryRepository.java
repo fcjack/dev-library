@@ -1,6 +1,6 @@
 package org.jack.library.repository;
 
-import org.jack.library.domain.BookCategory;
+import org.jack.library.entity.BookCategory;
 import org.springframework.data.repository.CrudRepository;
 
 /**

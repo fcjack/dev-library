@@ -2,6 +2,7 @@ package org.jack.library.domain;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.jack.library.entity.AbstractEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;

@@ -2,12 +2,13 @@ group 'org.jack.library'
 version '1.0-SNAPSHOT'
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.4.3.RELEASE'
-    compile("org.springframework.boot:spring-boot-starter-web:1.4.3.RELEASE") {
+    compile project(':domain')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.5.1.RELEASE'
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE") {
         exclude module: "spring-boot-starter-tomcat"
     }
     compile('org.postgresql:postgresql:9.4.1212')
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: '1.4.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: '1.5.1.RELEASE'
     compile group: 'org.liquibase', name: 'liquibase-core', version: '3.5.3'
     compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.6.1'
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.6.1'
