@@ -1,5 +1,6 @@
 package org.jack.library.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 
