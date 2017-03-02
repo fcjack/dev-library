@@ -1,0 +1,13 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="003" author="Jackson Coelho">
+
+        <renameColumn tableName="address" oldColumnName="addressLine1" newColumnName="address_line1"/>
+        <renameColumn tableName="address" oldColumnName="addressLine2" newColumnName="address_line2"/>
+
+    </changeSet>
+</databaseChangeLog>
