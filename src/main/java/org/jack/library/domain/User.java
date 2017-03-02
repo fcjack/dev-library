@@ -1,6 +1,11 @@
 package org.jack.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -10,16 +15,33 @@ import java.util.List;
 @SequenceGenerator(name = "seq", sequenceName = "user_seq", allocationSize = 1)
 public class User extends AbstractEntity {
 
+    @NotEmpty
+    @NotBlank
     private String name;
+
+    @NotEmpty
+    @NotBlank
     private String cpf;
+
     private Integer birthday;
 
     @Column(name = "birthday_month")
     private Integer birthdayMonth;
 
+    @NotEmpty
+    @NotBlank
     private String phone;
 
+    @NotEmpty
+    @NotBlank
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
+    @NotEmpty
+    @NotBlank
+    private String email;
+
+    private Date created;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "user_address",
@@ -32,22 +54,6 @@ public class User extends AbstractEntity {
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "category_id")})
     private List<BookCategory> interestedCategories;
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     public String getName() {
         return name;
@@ -81,6 +87,30 @@ public class User extends AbstractEntity {
         this.birthdayMonth = birthdayMonth;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public List<Address> getAddresses() {
         return addresses;
     }
@@ -95,5 +125,13 @@ public class User extends AbstractEntity {
 
     public void setInterestedCategories(List<BookCategory> interestedCategories) {
         this.interestedCategories = interestedCategories;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
 }

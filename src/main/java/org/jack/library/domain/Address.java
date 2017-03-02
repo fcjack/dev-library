@@ -1,8 +1,11 @@
 package org.jack.library.domain;
 
-import javax.persistence.Column;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by jackson on 01/03/17.
@@ -11,11 +14,22 @@ import javax.persistence.SequenceGenerator;
 @SequenceGenerator(name = "seq", sequenceName = "address_seq", allocationSize = 1)
 public class Address extends AbstractEntity {
 
+    @NotEmpty
+    @NotBlank
     private String addressLine1;
     private String addressLine2;
+
+    @NotEmpty
+    @NotBlank
     private String city;
+
+    @NotEmpty
+    @NotBlank
     private String state;
+
+    @NotNull
     private Integer number;
+
     private String complement;
     private String reference;
 
